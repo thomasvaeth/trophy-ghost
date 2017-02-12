@@ -238,21 +238,10 @@
  */
 .footer {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding-left: 2em;
   padding-right: 2em;
-
-  @media (min-width: $mq-sm) {
-    flex-direction: row;
-  }
-
-  &__archive {
-    @include border-slide();
-
-    @extend %letter-spacing;
-  }
 
   &__social {
     display: flex;
@@ -299,6 +288,10 @@
 
   h1 {
     line-height: 1.2;
+  }
+
+  a {
+    @extend .nav--white;
   }
 }
 

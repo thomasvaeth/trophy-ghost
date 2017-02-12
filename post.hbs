@@ -14,10 +14,11 @@
       <span><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMM D, YYYY"}}</time></span>
       <h1>{{title}}</h1>
       {{#if tags}}
-        <span>Posted in
-          {{#foreach tags}}
-            <a class="nav--white" href="{{tag}}">{{name}}</a>
-          {{/foreach}}
+        <span>
+          {{#author}}
+            <a href="{{url}}">{{name}}</a>
+          {{/author}}
+          in {{tags}}
         </span>
       {{/if}}
     </div>
@@ -50,7 +51,7 @@
 
 </article>
 
-{{#next_post}}
+{{#prev_post}}
   <section class="next">
     <a class="next__link" href="{{url}}" style="background-image: url('{{image}}');">
       <div class="next__container">
@@ -59,6 +60,6 @@
       </div> 
     </a>
   </section>
-{{/next_post}}
+{{/prev_post}}
 
 {{/post}}

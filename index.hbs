@@ -15,7 +15,7 @@
     <header>
       <ul class="tabs">
         <li class="tabs__item">Posts</li>
-        <li class="tabs__item">Categories</li>
+        <li class="tabs__item">Tags</li>
       </ul>
     </header>
 
@@ -35,10 +35,37 @@
 
       {{pagination}}
 
-      {{> "archive-link"}}
+      {{> "footer-page"}}
     </div>
 
-    {{> "tags-tab"}}
+    <div class="tab">
+      {{#get "tags" limit="all" include="count.posts"}}
+        <ul class="cards">
+          {{#foreach tags}}
+            {{#if count.posts}}
+              <li class="card">
+                <a class="card__link" href="/tag/{{slug}}/">
+                  <div class="card__img">
+                    {{#get "posts" filter="tags:{{slug}}" limit="1"}}
+                      {{#foreach posts}}
+                        <figure class="absolute-bg" style="background-image: url('{{image}}');"></figure>
+                      {{/foreach}}
+                    {{/get}}
+                  </div>
+                  <div class="card__container">
+                    <h2 class="card__header">{{name}}</h2>
+                    <p class="card__count">{{count.posts}} Posts</p>
+                    <span class="card__more">View All</span>
+                  </div>
+                </a>
+              </li>
+            {{/if}}
+          {{/foreach}}
+        </ul>
+      {{/get}}
+
+      {{> "footer-page"}}
+    </div>
 
   </div>
 
