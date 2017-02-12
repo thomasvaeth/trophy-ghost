@@ -1,0 +1,11 @@
+<footer class="section-padding--sm footer">
+  <a class="footer__archive" href="/archive/">Archive</a>
+  <ul class="footer__social">
+    {{#if @blog.facebook}}
+      <li><a class="fa fa-lg fa-facebook" href="{{@blog.facebook_url}}" target="_blank"></a></li>
+    {{/if}}
+    {{#if @blog.twitter}}
+      <li><a class="fa fa-lg fa-twitter" href="{{@blog.twitter_url}}" target="_blank"></a></li>
+    {{/if}}
+  </ul>
+</footer>

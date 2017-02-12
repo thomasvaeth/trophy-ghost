@@ -1,0 +1,45 @@
+{{!< default}}
+
+<section class="previews">
+  <div>
+    {{#foreach posts}}
+      <figure class="absolute-bg preview__img" style="background-image: url('{{image}}');"></figure>
+    {{/foreach}}
+    <div class="previews__container">
+      <span>Welcome to</span>
+      <h1>{{@blog.title}}</h1>
+    </div>
+  </div>
+
+  <div>
+    <header>
+      <ul class="tabs">
+        <li class="tabs__item">Posts</li>
+        <li class="tabs__item">Categories</li>
+      </ul>
+    </header>
+
+    <div class="tab">
+      <ul>
+        {{#foreach posts}}
+          <li class="preview">
+            <a class="preview__link" href="{{url}}">
+              <span class="preview__date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMM D, YYYY"}}</span>
+              <h2 class="preview__header">{{title}}</h2>
+              <p class="preview__excerpt">{{excerpt words="30"}}...</p>
+              <span class="preview__more">Read More</span>
+            </a>
+          </li>
+        {{/foreach}}
+      </ul>
+
+      {{pagination}}
+
+      {{> "archive-link"}}
+    </div>
+
+    {{> "tags-tab"}}
+
+  </div>
+
+</section>

@@ -4,7 +4,7 @@
 
 <article>
 
-  <header class="section-padding--lg">
+  <header class="section-padding--lg mast">
     <a class="nav nav--white" href="/">
       <i class="fa fa-lg fa-arrow-left"></i>
       <span>Back to Posts</span>
@@ -14,7 +14,7 @@
       <span><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMM D, YYYY"}}</time></span>
       <h1>{{title}}</h1>
       {{#if tags}}
-        <span>Post in
+        <span>Posted in
           {{#foreach tags}}
             <a class="nav--white" href="{{tag}}">{{name}}</a>
           {{/foreach}}
@@ -37,10 +37,10 @@
           <p>{{bio}}</p>
           <ul class="profile__social">
             {{#if facebook}}
-              <li><a class="fa fa-lg fa-facebook" href="{{facebook}}"></a></li>
+              <li><a class="fa fa-lg fa-facebook" href="{{facebook_url}}" target="_blank"></a></li>
             {{/if}}
             {{#if twitter}}
-              <li><a class="fa fa-lg fa-twitter" href="{{twitter}}"></a></li>
+              <li><a class="fa fa-lg fa-twitter" href="{{twitter_url}}" target="_blank"></a></li>
             {{/if}}
           </ul>
         </div>
