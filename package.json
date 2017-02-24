@@ -2,12 +2,16 @@
   "name": "trophy-ghost",
   "version": "1.0.0",
   "description": "Trophy is a blog theme for Ghost built using HTML, Sass, and JavaScript (no jQuery).",
-  "main": "",
+  "main": "gulpfile.js",
+  "homepage": "",
   "scripts": {
     "start": "gulp"
   },
+  "keywords": [
+    "ghost",
+    "blog"
+  ],
   "author": "Thomas Vaeth <thomas.vaeth@gmail.com> (http://thomasvaeth.com/)",
-  "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
