@@ -3,8 +3,13 @@
 <section class="previews">
   <div>
     {{#foreach posts}}
-      <figure class="absolute-bg preview__img" style="background-image: url('{{image}}');"></figure>
+      {{#if image}}
+        <figure class="absolute-bg preview__img" style="background-image: url('{{image}}');"></figure>
+      {{else}}
+        <figure class="absolute-bg preview__img" style="background-image: url('{{@blog.cover}}');"></figure>
+      {{/if}}
     {{/foreach}}
+
     <div class="previews__container">
       <span>Welcome to</span>
       <h1>{{@blog.title}}</h1>

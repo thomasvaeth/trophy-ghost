@@ -9,7 +9,11 @@
       <i class="fa fa-lg fa-arrow-left"></i>
       <span>Back to Posts</span>
     </a>
-    <figure class="absolute-bg mast__img" style="background-image: url('{{image}}');"></figure>
+    {{#if image}}
+      <figure class="absolute-bg mast__img" style="background-image: url('{{image}}');"></figure>
+    {{else}}
+      <figure class="absolute-bg mast__img" style="background-image: url('{{@blog.cover}}');"></figure>
+    {{/if}}   
     <div class="mast__container">
       <span><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMM D, YYYY"}}</time></span>
       <h1>{{title}}</h1>
