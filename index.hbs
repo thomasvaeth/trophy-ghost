@@ -3,7 +3,7 @@
 <section class="previews">
   <div>
     {{#foreach posts}}
-      <figure class="absolute-bg preview__img" style="background-image: url('{{image}}');"></figure>
+      <figure class="absolute-bg preview__img" style="background-image: url('{{img_url feature_image}}');"></figure>
     {{/foreach}}
     <div class="previews__container">
       <span>Welcome to</span>
@@ -48,7 +48,7 @@
                   <div class="card__img">
                     {{#get "posts" filter="tags:{{slug}}" limit="1"}}
                       {{#foreach posts}}
-                        <figure class="absolute-bg" style="background-image: url('{{image}}');"></figure>
+                        <figure class="absolute-bg" style="background-image: url('{{img_url feature_image}}');"></figure>
                       {{/foreach}}
                     {{/get}}
                   </div>
