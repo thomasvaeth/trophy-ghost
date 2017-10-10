@@ -1,44 +1,41 @@
 'use strict';
 
-var gulp = require('gulp');
-var autoprefixer = require('gulp-autoprefixer');
-var concat = require('gulp-concat');
-var minifyCss = require('gulp-minify-css');
-var rename = require('gulp-rename');
-var sass = require('gulp-sass');
-var uglify = require('gulp-uglify');
+const gulp = require('gulp');
+const autoprefixer = require('gulp-autoprefixer');
+const babelify = require('babelify');
+const browserify = require('browserify');
+const buffer = require('vinyl-buffer');
+const cleanCSS = require('gulp-clean-css');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
+const source = require('vinyl-source-stream');
+const uglify = require('gulp-uglify');
 
-gulp.task('sass', function() {
+gulp.task('sass', () => {
   return gulp.src('./dist/scss/main.scss')
   .pipe(sass().on('error', sass.logError))
   .pipe(autoprefixer({browsers: ['last 2 versions'], cascade: false}))
-  .pipe(minifyCss({compatibility: 'ie8'}))
-  .pipe(rename('main.min.css'))
+  .pipe(cleanCSS())
+  .pipe(rename({suffix: '.min'}))
   .pipe(gulp.dest('./assets/css'));
 });
 
-gulp.task('bundleScripts', function() {
-  return gulp.src([
-    './dist/js/vendor/rellax.js',
-    './dist/js/vendor/wow.js',
-    './dist/js/app.js'
-  ])
-  .pipe(concat('app.js'))
-  .pipe(gulp.dest('./assets/js'));
-});
-
-gulp.task('minifyBundle', ['bundleScripts'], function() {
-  return gulp.src('./assets/js/app.js')
+gulp.task('browserify', () => {
+  return browserify('./dist/js/app.js')
+  .transform('babelify', {presets: ['env']})
+  .bundle()
+  .pipe(source('app.js'))
+  .pipe(buffer())
   .pipe(uglify())
-  .pipe(rename('app.min.js'))
+  .pipe(rename({suffix: '.min'}))
   .pipe(gulp.dest('./assets/js'));
 });
 
-gulp.task('build', ['sass', 'minifyBundle']);
+gulp.task('build', ['sass', 'browserify']);
 
 gulp.task('watch', function() {
   gulp.watch('./dist/scss/**/*.scss', ['sass']);
-  gulp.watch('./dist/js/**/*.js', ['minifyBundle']);
+  gulp.watch('./dist/js/**/*.js', ['browserify']);
 });
 
 gulp.task('default', ['build', 'watch']);

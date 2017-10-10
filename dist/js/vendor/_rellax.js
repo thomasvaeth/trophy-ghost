@@ -1,4 +1,3 @@
-
 // ------------------------------------------
 // Rellax.js - v1.0.0
 // Buttery smooth parallax library

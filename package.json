@@ -3,7 +3,7 @@
   "description": "Trophy is a blog theme for Ghost built using HTML, Sass, and JavaScript (no jQuery).",
   "version": "1.1.0",
   "engines": {
-      "ghost": ">=1.0.0"
+    "ghost": ">=1.0.0"
   },
   "homepage": "http://thomasvaeth.com/trophy/",
   "scripts": {
@@ -20,13 +20,17 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "babel-preset-env": "^1.6.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-minify-css": "^1.2.4",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean-css": "^3.9.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^2.0.1"
+    "gulp-uglify": "^3.0.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   },
   "config": {
     "posts_per_page": 10
