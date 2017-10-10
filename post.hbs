@@ -5,11 +5,11 @@
 <article>
 
   <header class="section-padding--lg mast rellax" data-rellax-speed="-4">
-    <a class="nav nav--white" href="/">
+    <a class="nav nav--white" href="{{@blog.url}}">
       <i class="fa fa-lg fa-arrow-left"></i>
       <span>Back to Posts</span>
     </a>
-    <figure class="absolute-bg mast__img" style="background-image: url('{{image}}');"></figure>
+    <figure class="absolute-bg mast__img" style="background-image: url('{{img_url feature_image absolute="true"}}');"></figure>
     <div class="mast__container">
       <span><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMM D, YYYY"}}</time></span>
       <h1>{{title}}</h1>
@@ -34,7 +34,7 @@
     <section class="profile">
       <div class="profile__card">
         <div class="profile__img">
-          <figure class="absolute-bg" style="background-image: url('{{image}}');"></figure>
+          <figure class="absolute-bg" style="background-image: url('{{img_url profile_image absolute="true"}}');"></figure>
         </div>
         <div class="profile__container">
           <p>{{bio}}</p>
@@ -55,11 +55,11 @@
 
 {{#prev_post}}
   <section class="next">
-    <a class="next__link" href="{{url}}" style="background-image: url('{{image}}');">
+    <a class="next__link" href="{{url}}" style="background-image: url('{{img_url feature_image absolute="true"}}');">
       <div class="next__container">
         <span>Read Next</span>
         <h2>{{title}}</h2>
-      </div> 
+      </div>
     </a>
   </section>
 {{/prev_post}}
