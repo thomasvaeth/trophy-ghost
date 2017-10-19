@@ -12,7 +12,7 @@ const source = require('vinyl-source-stream');
 const uglify = require('gulp-uglify');
 
 gulp.task('sass', () => {
-  return gulp.src('./dist/scss/main.scss')
+  return gulp.src('./src/scss/main.scss')
   .pipe(sass().on('error', sass.logError))
   .pipe(autoprefixer({browsers: ['last 2 versions'], cascade: false}))
   .pipe(cleanCSS())
@@ -21,7 +21,7 @@ gulp.task('sass', () => {
 });
 
 gulp.task('browserify', () => {
-  return browserify('./dist/js/app.js')
+  return browserify('./src/js/app.js')
   .transform('babelify', {presets: ['env']})
   .bundle()
   .pipe(source('app.js'))
@@ -33,9 +33,9 @@ gulp.task('browserify', () => {
 
 gulp.task('build', ['sass', 'browserify']);
 
-gulp.task('watch', function() {
-  gulp.watch('./dist/scss/**/*.scss', ['sass']);
-  gulp.watch('./dist/js/**/*.js', ['browserify']);
+gulp.task('watch', () => {
+  gulp.watch('./src/scss/**/*.scss', ['sass']);
+  gulp.watch('./src/js/**/*.js', ['browserify']);
 });
 
 gulp.task('default', ['build', 'watch']);
