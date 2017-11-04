@@ -13,12 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // WOW
   const wow = new WOW({
-    boxClass: 'js-wow'
+    animateClass: 'fade-in'
   });
 
   // Rellax
   if (document.getElementsByClassName('rellax').length) {
-    var rellax = new Rellax('.rellax');
+    const rellax = new Rellax('.rellax');
   }
 
   // Inits

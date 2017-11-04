@@ -12,7 +12,7 @@ const source = require('vinyl-source-stream');
 const uglify = require('gulp-uglify');
 
 gulp.task('sass', () => {
-  return gulp.src('./src/scss/main.scss')
+  return gulp.src('./src/scss/app.scss')
   .pipe(sass().on('error', sass.logError))
   .pipe(autoprefixer({browsers: ['last 2 versions'], cascade: false}))
   .pipe(cleanCSS())
